@@ -30,24 +30,61 @@ async function run() {
     const database = client.db("touristsDB");
     const tourists = database.collection("tourists");
 
-    app.post('/tourist', async(req,res)=>{
-        const newSpot = req.body;
-        const result = await tourists.insertOne(newSpot);
-        res.send(result);
+    app.post('/tourist', async (req, res) => {
+      const newSpot = req.body;
+      const result = await tourists.insertOne(newSpot);
+      res.send(result);
     })
 
-    app.get('/tourist', async(req,res)=>{
-        const cursor = tourists.find();
-        const result = await cursor.toArray();
-        res.send(result)
+    app.get('/tourist', async (req, res) => {
+      const cursor = tourists.find();
+      const result = await cursor.toArray();
+      res.send(result)
     })
 
-    app.get('/tourist/:id', async(req,res)=>{
-        const id = req.params.id;
-      const query = {_id : new ObjectId(id)};
+    app.get('/tourist/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
       const result = await tourists.findOne(query);
       res.send(result);
     })
+
+    app.put('/tourist/:id', async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updateSpot = req.body;
+
+      const newSpot = {
+        $set: {
+          spotName: updateSpot.spotName,
+          location: updateSpot.location,
+          country: updateSpot.country,
+          season: updateSpot.season,
+          avgCost: updateSpot.avgCost,
+          TravelTime: updateSpot.TravelTime,
+          TotalVisitor: updateSpot.TotalVisitor,
+          image: updateSpot.image,
+          shortDescription: updateSpot.shortDescription,
+        }
+      }
+      const result = await tourists.updateOne(filter,newSpot,options);
+      res.send(result);
+    })
+
+    app.delete('/tourist/:id', async(req,res)=>{
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)};
+      const result = await tourists.deleteOne(query);
+      res.send(result);
+    })
+
+    // app.get('/tourist/:email', async(req,res)=>{
+    //   console.log(req.params.email);
+    // const email = req.params.email;
+    // const result = await tourists.find({ userEmail: email }).toArray(); // Convert cursor to array
+    // res.send(result);
+    // })
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
@@ -59,10 +96,10 @@ async function run() {
 }
 run().catch(console.dir);
 
-app.get('/',(req,res)=>{
-    res.send("Hello Kilbil");
+app.get('/', (req, res) => {
+  res.send("Hello Kilbil");
 });
 
-app.listen(port, ()=>{
-    console.log(`Current port ${port}`);
+app.listen(port, () => {
+  console.log(`Current port ${port}`);
 })

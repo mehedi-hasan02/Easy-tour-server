@@ -1,0 +1,94 @@
+[
+    {
+      "userName": "Akeem Humphrey",
+      "userEmail": "a@a.com",
+      "spotName": "Cox's Bazar Sea Beach",
+      "location": "Cox's Bazar",
+      "country": "Bangladesh",
+      "season": "Summer,Winter",
+      "avgCost": "10000",
+      "TravelTime": "3Days",
+      "TotalVisitor": "1lakh",
+      "image": "https://iili.io/JUu4PF1.jpg",
+      "shortDescription": "Cox's Bazar Sea Beach, often dubbed as the 'Queen of Beaches,' is a st…"
+    },
+    {
+      "userName": "Akeem Humphrey",
+      "userEmail": "a@a.com",
+      "spotName": "Kuala Lumpur",
+      "location": "Kuala Lumpur",
+      "country": "Malaysia",
+      "season": "Winter",
+      "avgCost": "800",
+      "TravelTime": "7 Days",
+      "TotalVisitor": "50000",
+      "image": "https://iili.io/JUA2ZRj.jpg",
+      "shortDescription": "Kuala Lumpur, the bustling capital of Malaysia, is a vibrant metropoli…"
+    },
+    {
+      "userName": "Mehedi Hasan",
+      "userEmail": "mehedisani25@gmail.com",
+      "spotName": "Saint Martin’s Island",
+      "location": "Cox's Bazar-Teknaf",
+      "country": "Bangladesh",
+      "season": "Winter",
+      "avgCost": "150",
+      "TravelTime": "3 Days",
+      "TotalVisitor": "1 Lakh",
+      "image": "https://iili.io/JU7KdhJ.jpg",
+      "shortDescription": "Saint Martin’s Island is a small but culturally rich island located in t…"
+    },
+    {
+      "userName": "Mehedi Hasan",
+      "userEmail": "mehedisani25@gmail.com",
+      "spotName": "",
+      "location": "",
+      "country": "",
+      "season": "",
+      "avgCost": "",
+      "TravelTime": "",
+      "TotalVisitor": "1.5",
+      "image": "https://iili.io/JU7zykQ.jpg",
+      "shortDescription": "Bali, an Indonesian island located in the westernmost end of the Lesse…"
+    },
+    {
+      "userName": "Mehedi Hasan",
+      "userEmail": "mehedisani25@gmail.com",
+      "spotName": "Bali",
+      "location": "Bali, Indonesian",
+      "country": "Indonesian",
+      "season": "Summer",
+      "avgCost": "1000",
+      "TravelTime": "7 Days",
+      "TotalVisitor": "1.5 Lakh",
+      "image": "https://iili.io/JU7zykQ.jpg",
+      "shortDescription": "Bali, an Indonesian island located in the westernmost end of the Lesse…"
+    },
+    {
+      "userName": "Mehedi Hasan",
+      "userEmail": "mehedisani25@gmail.com",
+      "spotName": "Bandarban",
+      "location": "Bandarban, Chittagong",
+      "country": "Bangladesh",
+      "season": "Winter",
+      "avgCost": "100",
+      "TravelTime": "3 Days",
+      "TotalVisitor": "80 Thousand",
+      "image": "https://iili.io/JU7YWbf.jpg",
+      "shortDescription": "Bandarban is a picturesque district located in the southeastern part o…"
+    },
+    {
+      "userName": "Mehedi Hasan",
+      "userEmail": "mehedisani25@gmail.com",
+      "spotName": "Bangkok",
+      "location": "Bangkok, Thailand",
+      "country": "Thailand",
+      "season": "Winter",
+      "avgCost": "1500",
+      "TravelTime": "10 Days",
+      "TotalVisitor": "2 Lakh",
+      "image": "https://iili.io/JU7EVe9.jpg",
+      "shortDescription": "Bangkok, the vibrant capital city of Thailand, is a bustling metropoli…"
+    }
+  ]
+  
