@@ -79,12 +79,11 @@ async function run() {
       res.send(result);
     })
 
-    // app.get('/tourist/:email', async(req,res)=>{
-    //   console.log(req.params.email);
-    // const email = req.params.email;
-    // const result = await tourists.find({ userEmail: email }).toArray(); // Convert cursor to array
-    // res.send(result);
-    // })
+    app.get('/emailTour/:email', async(req,res)=>{
+    const email = req.params.email;
+    const result = await tourists.find({ userEmail: email }).toArray();
+    res.send(result);
+    })
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
