@@ -29,11 +29,25 @@ async function run() {
 
     const database = client.db("touristsDB");
     const tourists = database.collection("tourists");
+    const countryDB = database.collection("countryDB");
 
     app.post('/tourist', async (req, res) => {
       const newSpot = req.body;
       const result = await tourists.insertOne(newSpot);
+      const countryData = {
+        cImage : newSpot.image,
+        cName : newSpot.country,
+        cDescription : newSpot.shortDescription,
+
+      };
+      const cDbCollection = await countryDB.insertOne(countryData);
       res.send(result);
+    })
+
+    app.get('/country', async(req,res)=>{
+      const cursor = countryDB.find();
+      const result = await cursor.toArray();
+      res.send(result)
     })
 
     app.get('/tourist', async (req, res) => {
