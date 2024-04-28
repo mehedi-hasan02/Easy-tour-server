@@ -29,18 +29,18 @@ async function run() {
 
     const database = client.db("touristsDB");
     const tourists = database.collection("tourists");
-    const countryDB = database.collection("countryDB");
+    // const countryDB = database.collection("countryDB");
 
     app.post('/tourist', async (req, res) => {
       const newSpot = req.body;
       const result = await tourists.insertOne(newSpot);
-      const countryData = {
-        cImage : newSpot.image,
-        cName : newSpot.country,
-        cDescription : newSpot.shortDescription,
+      // const countryData = {
+      //   cImage : newSpot.image,
+      //   cName : newSpot.country,
+      //   cDescription : newSpot.shortDescription,
 
-      };
-      const cDbCollection = await countryDB.insertOne(countryData);
+      // };
+      // const cDbCollection = await countryDB.insertOne(countryData);
       res.send(result);
     })
 
@@ -62,6 +62,12 @@ async function run() {
       const result = await tourists.findOne(query);
       res.send(result);
     })
+
+    app.get('/countrySpot/:country', async(req,res)=>{
+      const countrySpots = req.params.country;
+      const result = await tourists.find({ country: countrySpots }).toArray();
+      res.send(result);
+      })
 
     app.put('/tourist/:id', async (req, res) => {
       const id = req.params.id;
