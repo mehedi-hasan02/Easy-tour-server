@@ -10,7 +10,6 @@ app.use(cors());
 app.use(express.json());
 
 
-
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.fvwg0tw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 const client = new MongoClient(uri, {
@@ -26,12 +25,13 @@ async function run() {
 
     const database = client.db("touristsDB");
     const tourists = database.collection("tourists");
+    const countryDB = database.collection("countryDB");
+    const popularDB = database.collection("popularDB");
     
 
     app.post('/tourist', async (req, res) => {
       const newSpot = req.body;
-      const result = await tourists.insertOne(newSpot);
-      
+      const result = await tourists.insertOne(newSpot);  
       res.send(result);
     })
 
@@ -39,6 +39,12 @@ async function run() {
       const cursor = countryDB.find();
       const result = await cursor.toArray();
       res.send(result)
+    })
+
+    app.get('/popular', async(req,res)=>{
+      const cursor = popularDB.find();
+      const result = await cursor.toArray();
+      res.send(result);
     })
 
     app.get('/tourist', async (req, res) => {
